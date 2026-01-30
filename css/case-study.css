@@ -1,0 +1,91 @@
+/* Case Study Specific Styles */
+.case-hero {
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.case-hero h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    margin-bottom: 20px;
+}
+
+.case-meta {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meta-item h4 {
+    font-size: 0.8rem;
+    color: var(--muted-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.meta-item p {
+    font-weight: 600;
+}
+
+.case-content {
+    padding: 80px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.case-section {
+    margin-bottom: 100px;
+}
+
+.case-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.case-section p {
+    font-size: 1.15rem;
+    color: var(--muted-text);
+    margin-bottom: 30px;
+}
+
+.case-image-full {
+    width: 100%;
+    margin: 60px 0;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05);
+}
+
+.case-image-full img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 40px;
+    transition: var(--transition-smooth);
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+@media (max-width: 768px) {
+    .case-meta {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+}
