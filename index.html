@@ -3,7 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+    <!-- iOS Specific Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Android Specific Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ffffff">
+
     <title>UX/UI Portfolio | Refined Design</title>
     <meta name="description" content="Portafolio de diseñador UX/UI con un estilo sobrio y refinado.">
     <link rel="stylesheet" href="css/style.css">
@@ -12,28 +22,83 @@
 <body>
 
     <header>
-        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+        <div class="container header-content">
             <div class="logo">LEO DESIGN.</div>
-            <nav>
-                <ul>
-                    <li><a href="#projects">Proyectos</a></li>
-                    <li><a href="#about">Sobre mí</a></li>
-                    <li><a href="#contact" class="contact-btn">Contacto</a></li>
-                </ul>
-            </nav>
+
+            <!-- Desktop Navigation + Language Toggle -->
+            <div class="nav-wrapper">
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
+                        <li><a href="#about" data-i18n="nav.about">Sobre mí</a></li>
+                        <li><a href="#contact" class="contact-btn" data-i18n="nav.contact">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Language Toggle -->
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <span class="lang-separator">/</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+
+            <!-- Hamburger Button (Mobile) -->
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <!-- M3: Menu Header with Close Button -->
+        <div class="mobile-menu-header">
+            <h2 class="mobile-menu-title">Menú</h2>
+            <button class="mobile-menu-close" aria-label="Cerrar menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+                        fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- M3: Menu Content -->
+        <nav class="mobile-menu-content">
+            <ul>
+                <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="#about" data-i18n="nav.about">Sobre mí</a></li>
+                <li><a href="#contact" class="contact-btn" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- M3: Menu Footer with Language Toggle -->
+        <div class="mobile-menu-footer">
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <span class="lang-separator">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </div>
+
 
     <main>
         <section class="hero container">
             <div class="hero-info-row">
                 <div class="hero-info-name">Leonardo Ortiz</div>
-                <div class="hero-info-role animated-role" id="hero-role">UX/UI Designer</div>
+                <div class="hero-info-role animated-role" id="hero-role" data-i18n="hero.role">UX/UI Designer</div>
             </div>
             <div class="hero-title-container">
                 <div class="hero-title-main">PORTFOLIO</div>
             </div>
-            <p>Especializado en crear interfaces intuitivas para productos complejos</p>
+            <p data-i18n="hero.subtitle">Especializado en crear interfaces intuitivas para productos complejos</p>
         </section>
 
         <div class="ticker-wrap">
@@ -43,21 +108,22 @@
                     <span>HotJar</span><span class="ticker-dot"></span>
                     <span>Maze</span><span class="ticker-dot"></span>
                     <span>Antigravity</span><span class="ticker-dot"></span>
-                    <span>Relume</span><span class="ticker-dot"></span>
+                    <span>Relume</span>
                 </div>
                 <!-- Duplicate for seamless loop -->
                 <div class="ticker-content">
+                    <span class="ticker-dot"></span>
                     <span>Figma</span><span class="ticker-dot"></span>
                     <span>HotJar</span><span class="ticker-dot"></span>
                     <span>Maze</span><span class="ticker-dot"></span>
                     <span>Antigravity</span><span class="ticker-dot"></span>
-                    <span>Relume</span><span class="ticker-dot"></span>
+                    <span>Relume</span>
                 </div>
             </div>
         </div>
 
         <section id="projects" class="projects container">
-            <h2 class="section-title">Proyectos Seleccionados</h2>
+            <h2 class="section-title" data-i18n="projects.title">Casos de estudio</h2>
             <div class="grid">
                 <!-- Project 1 -->
                 <a href="case-study-paydot.html" style="text-decoration: none; color: inherit;">
@@ -66,9 +132,10 @@
                             <img src="assets/paydot_main.png" alt="Paydot Fintech App Design">
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Fintech App</span>
+                            <span class="project-tag" data-i18n="projects.paydot.tag">Fintech App</span>
                             <h3>Paydot</h3>
-                            <p>Plataforma de pagos digitales enfocada en la rapidez y la seguridad financiera.</p>
+                            <p data-i18n="projects.paydot.description">Plataforma de pagos digitales enfocada en la
+                                rapidez y la seguridad financiera.</p>
                         </div>
                     </div>
                 </a>
@@ -92,10 +159,12 @@
         <section id="about" class="about container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Enfoque Refinado en cada Píxel.</h2>
-                    <p>Creo que el buen diseño no es el que más se ve, sino el que mejor se siente. Mi proceso combina
+                    <h2 data-i18n="about.title">Enfoque Refinado en cada Píxel.</h2>
+                    <p data-i18n="about.paragraph1">Creo que el buen diseño no es el que más se ve, sino el que mejor se
+                        siente. Mi proceso combina
                         la investigación profunda con una estética minimalista para resolver problemas complejos.</p>
-                    <p>Con más de 5 años de experiencia, he trabajado con startups y empresas consolidadas para elevar
+                    <p data-i18n="about.paragraph2">Con más de 5 años de experiencia, he trabajado con startups y
+                        empresas consolidadas para elevar
                         su presencia digital.</p>
                 </div>
                 <div class="about-image">
@@ -108,15 +177,16 @@
 
     <footer id="contact">
         <div class="container footer-content">
-            <h2>¿Tienes un proyecto en mente?</h2>
-            <a href="mailto:hola@ejemplo.com" class="footer-btn">Dime hola</a>
+            <h2 data-i18n="footer.title">¿Tienes un proyecto en mente?</h2>
+            <a href="mailto:hola@ejemplo.com" class="footer-btn" data-i18n="footer.cta">Dime hola</a>
             <div class="social-links">
                 <a href="#">LinkedIn</a>
                 <a href="#">Behance</a>
                 <a href="#">Dribbble</a>
                 <a href="#">Instagram</a>
             </div>
-            <p style="margin-top: 80px; color: #444; font-size: 0.8rem;">© 2026 Diseñado con refinamiento.</p>
+            <p style="margin-top: 80px; color: #444; font-size: 0.8rem;" data-i18n="footer.copyright">© 2026 Diseñado
+                con refinamiento.</p>
         </div>
     </footer>
 

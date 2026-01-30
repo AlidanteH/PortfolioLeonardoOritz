@@ -1,64 +1,77 @@
 /* Case Study Specific Styles */
 .case-hero {
-    padding: 120px 0 60px;
+    padding: 160px 0 80px;
     text-align: center;
 }
 
 .case-hero h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
-    margin-bottom: 20px;
+    /* M3: Display Large/Medium combo */
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 850;
+    margin-bottom: 24px;
+    letter-spacing: -3px;
 }
 
 .case-meta {
     display: flex;
     justify-content: center;
-    gap: 60px;
-    margin-top: 60px;
-    padding: 40px 0;
+    gap: 64px;
+    margin-top: 80px;
+    padding: 48px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
 
 .meta-item h4 {
-    font-size: 0.8rem;
+    /* M3: Label Large */
+    font-size: 0.9rem;
     color: var(--muted-text);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .meta-item p {
+    /* M3: Title Medium */
+    font-size: 1.1rem;
     font-weight: 600;
+    color: var(--text-color);
 }
 
 .case-content {
-    padding: 80px 0;
+    padding: 100px 0;
     max-width: 800px;
     margin: 0 auto;
 }
 
 .case-section {
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 
 .case-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    letter-spacing: -1px;
+    /* M3: Headline Medium */
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 32px;
+    letter-spacing: -1.5px;
 }
 
 .case-section p {
-    font-size: 1.15rem;
+    /* M3: Body Large */
+    font-size: 1.25rem;
+    line-height: 1.6;
     color: var(--muted-text);
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .case-image-full {
     width: 100%;
-    margin: 60px 0;
+    margin: 80px 0;
     border-radius: 32px;
+    /* M3 Extra Large Component */
     overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .case-image-full img {
@@ -70,22 +83,159 @@
 .back-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 600;
-    margin-bottom: 40px;
-    transition: var(--transition-smooth);
+    font-weight: 700;
+    margin-bottom: 48px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all var(--md3-duration-short2) var(--md3-standard);
+    position: relative;
+    overflow: hidden;
 }
 
 .back-btn:hover {
-    transform: translateX(-5px);
+    background: var(--md3-state-layer-hover);
+    transform: translateX(-4px);
 }
 
-@media (max-width: 768px) {
+.back-btn:active {
+    background: var(--md3-state-layer-pressed);
+}
+
+/* ========================================
+   CASE STUDY RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablets & iPads (768px - 1024px) */
+@media (max-width: 1024px) {
+    .case-hero {
+        padding: 100px 0 50px;
+    }
+
+    .case-hero h1 {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+    }
+
+    .case-meta {
+        gap: 40px;
+    }
+
+    .case-content {
+        padding: 60px 0;
+    }
+
+    .case-section {
+        margin-bottom: 80px;
+    }
+
+    .case-section h2 {
+        font-size: 2rem;
+    }
+
+    .case-section p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Devices (max-width: 767px) */
+@media (max-width: 767px) {
+    .case-hero {
+        padding: 80px 0 40px;
+    }
+
+    .case-hero h1 {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+
     .case-meta {
         flex-direction: column;
         gap: 30px;
         text-align: center;
+        margin-top: 40px;
+        padding: 30px 0;
+    }
+
+    .meta-item h4 {
+        font-size: 0.75rem;
+    }
+
+    .meta-item p {
+        font-size: 0.95rem;
+    }
+
+    .case-content {
+        padding: 40px 0;
+    }
+
+    .case-section {
+        margin-bottom: 60px;
+    }
+
+    .case-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .case-section p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .case-image-full {
+        margin: 40px 0;
+        border-radius: 20px;
+    }
+
+    .back-btn {
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .case-hero {
+        padding: 60px 0 30px;
+    }
+
+    .case-hero h1 {
+        font-size: clamp(1.8rem, 10vw, 3rem);
+        margin-bottom: 16px;
+    }
+
+    .case-meta {
+        gap: 24px;
+        margin-top: 30px;
+        padding: 24px 0;
+    }
+
+    .case-content {
+        padding: 30px 0;
+    }
+
+    .case-section {
+        margin-bottom: 40px;
+    }
+
+    .case-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+
+    .case-section p {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+    }
+
+    .case-image-full {
+        margin: 30px 0;
+        border-radius: 16px;
+    }
+
+    .back-btn {
+        margin-bottom: 24px;
+        font-size: 0.85rem;
     }
 }
