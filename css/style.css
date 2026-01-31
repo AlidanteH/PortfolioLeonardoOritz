@@ -89,6 +89,17 @@
     --md3-focus-ring-width: 2px;
     --md3-focus-ring-offset: 2px;
 
+    /* ========================================
+       MATERIAL DESIGN 3 - SPACING & LAYOUT
+       ======================================== */
+    --md3-spacing-margin-mobile: 16px;
+    --md3-spacing-margin-tablet: 24px;
+    --md3-spacing-margin-desktop: 24px;
+
+    --md3-spacing-gutter-mobile: 16px;
+    --md3-spacing-gutter-tablet: 24px;
+    --md3-spacing-gutter-desktop: 24px;
+
     /* Legacy transition (for backwards compatibility) */
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -114,7 +125,8 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--md3-spacing-margin-tablet);
+    /* Default for medium/large */
 }
 
 /* Header */
@@ -270,6 +282,8 @@ nav a.contact-btn:active {
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
     display: none;
+    pointer-events: none;
+    /* Default disabled */
     position: fixed;
     top: 0;
     left: 0;
@@ -282,7 +296,10 @@ nav a.contact-btn:active {
 }
 
 .mobile-menu-overlay.active {
+    display: block;
     opacity: 1;
+    pointer-events: auto;
+    /* Enable when active */
 }
 
 /* Mobile Menu */
@@ -510,7 +527,8 @@ nav a.contact-btn:active {
 
 /* Hero Section */
 .hero {
-    padding: 160px 0 100px;
+    padding-top: 160px;
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -652,13 +670,15 @@ nav a.contact-btn:active {
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-25%);
+        /* Moves exactly one out of four identical blocks */
     }
 }
 
 /* Projects Grid */
 .projects {
-    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .section-title {
@@ -673,7 +693,7 @@ nav a.contact-btn:active {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: var(--md3-spacing-gutter-desktop);
     /* M3 Standard spacing */
 }
 
@@ -780,7 +800,8 @@ nav a.contact-btn:active {
 
 /* About Section */
 .about {
-    padding: 120px 0;
+    padding-top: 120px;
+    padding-bottom: 120px;
     border-top: 1px solid var(--border-color);
 }
 
@@ -810,7 +831,8 @@ nav a.contact-btn:active {
 
 /* Footer */
 footer {
-    padding: 120px 0 80px;
+    padding-top: 120px;
+    padding-bottom: 80px;
     background: #000;
     color: #fff;
     text-align: center;
@@ -880,11 +902,12 @@ footer {
 /* Tablets & iPads (768px - 1024px) */
 @media (max-width: 1024px) {
     .container {
-        padding: 0 30px;
+        padding: 0 var(--md3-spacing-margin-tablet);
     }
 
     .hero {
-        padding: 120px 0 80px;
+        padding-top: 120px;
+        padding-bottom: 80px;
     }
 
     .hero-title-main {
@@ -911,7 +934,7 @@ footer {
 
     .grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: var(--md3-spacing-gutter-tablet);
     }
 
     .about-content {
@@ -946,13 +969,12 @@ footer {
 /* Mobile Devices (max-width: 767px) */
 @media (max-width: 767px) {
     .container {
-        padding: 0 20px;
+        padding: 0 var(--md3-spacing-margin-mobile);
     }
 
     /* Header - Mobile Navigation */
     header {
         height: 70px;
-        padding: 0 16px;
     }
 
     header.scrolled {
@@ -974,8 +996,12 @@ footer {
         display: flex;
     }
 
-    .mobile-menu-overlay,
     .mobile-menu {
+        display: flex;
+        /* M3: Side sheet is a flex container */
+    }
+
+    .mobile-menu-overlay.active {
         display: block;
     }
 
@@ -987,7 +1013,8 @@ footer {
 
     /* Hero Section - Mobile */
     .hero {
-        padding: 80px 0 60px;
+        padding-top: 80px;
+        padding-bottom: 60px;
     }
 
     .hero-info-row {
@@ -1017,7 +1044,6 @@ footer {
 
     .hero p {
         font-size: 1rem;
-        padding: 0 10px;
     }
 
     /* Ticker - Mobile */
@@ -1038,7 +1064,8 @@ footer {
 
     /* Projects Grid - Mobile */
     .projects {
-        padding: 60px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
     .section-title {
@@ -1048,7 +1075,7 @@ footer {
 
     .grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: var(--md3-spacing-gutter-mobile);
     }
 
     .project-card {
@@ -1069,7 +1096,8 @@ footer {
 
     /* About Section - Mobile */
     .about {
-        padding: 60px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
     .about-content {
@@ -1088,7 +1116,8 @@ footer {
 
     /* Footer - Mobile */
     footer {
-        padding: 60px 0 40px;
+        padding-top: 60px;
+        padding-bottom: 40px;
     }
 
     .footer-content h2 {
@@ -1116,12 +1145,11 @@ footer {
 /* Small Mobile Devices (max-width: 480px) */
 @media (max-width: 480px) {
     .container {
-        padding: 0 16px;
+        padding: 0 var(--md3-spacing-margin-mobile);
     }
 
     header {
         height: 60px;
-        padding: 0 12px;
     }
 
     .logo {
@@ -1161,7 +1189,8 @@ footer {
 
 
     .hero {
-        padding: 60px 0 40px;
+        padding-top: 60px;
+        padding-bottom: 40px;
     }
 
     .hero-info-name,
@@ -1195,7 +1224,8 @@ footer {
     }
 
     .projects {
-        padding: 40px 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .section-title {
@@ -1224,7 +1254,8 @@ footer {
     }
 
     .about {
-        padding: 40px 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .about-text h2 {
@@ -1237,7 +1268,8 @@ footer {
     }
 
     footer {
-        padding: 40px 0 30px;
+        padding-top: 40px;
+        padding-bottom: 30px;
     }
 
     .footer-content h2 {
@@ -1279,7 +1311,8 @@ footer {
 /* Landscape Orientation Adjustments */
 @media (max-height: 600px) and (orientation: landscape) {
     .hero {
-        padding: 60px 0 40px;
+        padding-top: 60px;
+        padding-bottom: 40px;
     }
 
     .hero-title-main {
@@ -1292,7 +1325,8 @@ footer {
     }
 
     footer {
-        padding: 60px 0 30px;
+        padding-top: 60px;
+        padding-bottom: 30px;
     }
 }
 
