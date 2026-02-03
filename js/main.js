@@ -81,8 +81,9 @@ document.querySelectorAll('nav a, .mobile-menu-content a').forEach(anchor => {
         const targetSection = document.querySelector(targetId);
 
         if (targetSection) {
+            const headerHeight = document.querySelector('header').offsetHeight;
             window.scrollTo({
-                top: targetSection.offsetTop - 100,
+                top: targetSection.offsetTop - headerHeight,
                 behavior: 'smooth'
             });
         }
